@@ -2,10 +2,10 @@ angular.module('ideasVN.uploader', [])
     .directive('iUploader', [function () {
         return {
             restrict: 'E',
-            template: '<div class="input-group" id="uploadFile">' +
+            template: '<div class="input-group uploadFiles" id="{{uploadId}}">' +
             '<span class="input-group-btn">' +
             '<button class="btn btn-success" type="button">Add File</button>' +
-            '<!--<input type="file" class="uploadBtn"/>-->' +
+            '<input type="file" class="uploadBtn"/>' +
             '</span>' +
             '<input type="text" class="form-control uploadFile" readonly="readonly"/>' +
             '<span class="input-group-btn">' +
@@ -14,7 +14,8 @@ angular.module('ideasVN.uploader', [])
             '</span>' +
             '</div>',
             link: function (scope, element, attrs, ctrls) {
-                
-            }
+                scope.uploadId = attrs.uploadId;
+            },
+            replace: true
         };
     }]);
